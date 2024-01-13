@@ -1,0 +1,1485 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Biography</title>
+  <style>
+    /* navbar css */
+
+    /* Custom CSS for navbar background color */
+    .navbar {
+      /* Set the background color to orange */
+      height: 80px;
+    }
+
+
+    .navbar .navbar-nav .nav-item .nav-link {
+      color: #000000;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 26px;
+    }
+
+    /* Custom CSS for navbar links */
+    .navbar .navbar-nav .nav-item .nav-link:hover {
+      color: #ffffff;
+      /* Change the link color on hover (adjust the color as needed) */
+    }
+
+
+    .navbar {
+      transition: background-color 2.0s;
+      position: relative;
+      top: 1.6;
+      left: 1.6;
+      right: 1.6;
+      z-index: 1.6;
+    }
+
+    .navbar.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      animation: fadeIn 1.5s;
+      /* Updated background color when scrolled */
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .navbar-brand img {
+      height: 60px;
+      width: auto;
+    }
+
+    #menu {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    #menu li {
+      margin: 0 15px;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar-nav {
+        list-style: none;
+        padding: 0;
+        display: flex;
+    }
+
+    .nav-item {
+        margin-left: -5px;
+        padding: 2px;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease; /* Add a transition effect for the color property */
+    }
+
+    .nav-link:hover {
+        color: #007bff; /* Change the color on hover */
+    }
+
+    /* css visitor-count */
+
+    #visitor-count {
+      color: #000000;
+      font-weight: bold;
+      margin-left: 600px;
+    }
+
+    /* div of img  */
+    @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    .text {
+      background-color: rgb(255, 167, 24);
+      height: 500px;
+      font-weight: lighter;
+            color: #111111;
+            line-height: 2.0;
+            font-size: 40px;
+            font-family: 'Playfair Display', 'serif';
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+    }
+
+
+
+    .cover-img {
+    background-image: url('https://www.technologytimes.pk/wp-content/uploads/2023/01/Selected-Papers-of-Dr-Abdus-Salam-785x437.jpg');
+    height: 300px; /* Set an initial height for smaller screens */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+    .cover-img {
+        height: 500px; /* Increase the height for larger screens */
+    }
+}
+
+    .about-us {
+      margin-top: 130px;
+      background-color: #ffffff;
+    }
+
+    .animated-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.2s ease-in, transform 0.6s ease-in;
+    }
+
+    .animated-fade.animate {
+      opacity: 2;
+      transform: translateY(0);
+    }
+
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      margin: 10px;
+    }
+
+    .image-cover {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: bottom 0.3s ease;
+    }
+
+    .image-container:hover .image-cover {
+      bottom: 100%;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+    }
+
+    .image-container {
+      perspective: 1000px;
+      display: inline-block;
+      margin: 10px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+
+    .image-card {
+      width: 200px;
+      height: 300px;
+    }
+
+    .image-card,
+    .image-front,
+    .image-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-front {
+      backface-visibility: hidden;
+      transform: rotateY(0deg);
+    }
+
+    .image-back {
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-cover {
+      background-color: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .image-container:hover .image-cover {
+      opacity: 1;
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+
+    .flex-container{
+            display: flex;
+        }
+/* contact css */
+
+
+#container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #map,
+        #contact-form {
+            flex: 1;
+            margin: 10px;
+        }
+
+        #map iframe {
+            width: 100%;
+            height: 300px; /* Default height for smaller screens */
+        }
+
+        #contact-form form {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            #map iframe {
+                height: 500px; /* Adjust the height for larger screens */
+            }
+        }
+        #contact-form {
+            flex: 1;
+            padding: 20px;
+            min-height: 300px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #contact-form h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-align: left;
+            justify-content: left;
+
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        
+        @media (max-width: 768px) {
+            #container {
+                flex-direction: column;
+            }
+
+            #map {
+                flex: 1;
+            }
+
+            #contact-form {
+                flex: 1;
+                padding: 20px;
+            }
+        }
+
+        .error {
+            color: rgb(255, 7, 7);
+        }
+        h1 {
+            text-align: center;
+            
+            padding-top: 80px;
+        }
+
+/* footer */
+.footer,
+        #footer2 {
+            padding: 30px 0;
+            color: #fff;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #000;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            color: #000;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+             color: #000000;
+        }
+
+        .footer a {
+            color: #000000;
+            text-decoration: none;
+            font-size: larger;
+        }
+
+        .footer a:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        #scrollTop {
+            background-color: #fff;
+            color: #f39821;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    #footer2 {
+      background-color: #242424;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+    
+    #scrollTop{
+                                       display: none;
+                                       position: fixed;
+                                       bottom: 20px;
+                                       right: 20px;
+                                       font-size: 24px;
+                                       background-color: #f39821;
+                                       color: rgb(0, 0, 0);
+                                       border: none;
+                                       width: 50px;
+                                       height:50px;
+                                       border-radius: 150px;
+                                       padding: 10px  15px;
+                                       cursor: pointer;
+                    }
+     #scrollTop:hover{
+                                        background-color: rgb(0, 0, 0);
+                                        color: white;
+                    }
+
+                  
+  
+
+
+/* Keyframe animation for fade in and move up effect */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.gallery-item {
+    flex: 0 0 calc(25% - 20px); /* 25% width for each item with 20px margin */
+    margin: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .gallery-item {
+        flex: 0 0 calc(50% - 20px); /* Two items per row for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .gallery-item {
+        flex: 0 0 calc(100% - 20px); /* Single item per row for even smaller screens */
+    }
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.gallery-item .image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 1s ease;
+    text-align: left;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(70%); /* Adjust brightness for the overlay effect */
+}
+
+.gallery-item:hover .image-text {
+    opacity: 1;
+    margin-right: 70px;
+}
+
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .gallery-item {
+            position: relative;
+            perspective: 1000px;
+            margin: 10px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transform-origin: center;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .image-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white; /* Adjust text color */
+            font-weight: bold;
+        }
+        #pdf-link img {
+            width: 300px; /* Adjust the width of the image as needed */
+            height: auto;
+            cursor: pointer;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .gallery-item {
+            position: relative;
+            perspective: 1000px;
+            margin: 10px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transform-origin: center;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .image-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white; /* Adjust text color */
+            font-weight: bold;
+        }
+
+        .pdf-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+      
+       
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                height: 30px; /* Adjusted height for smaller screens */
+                margin-bottom: 5px; /* Adjusted margin for smaller screens */
+            }
+        }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light-orange" style="background-color: rgb(255, 167, 24)">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="margin-left: 10px;">
+          <img src="file:///E:/logo.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Biography">Biography</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Contact">Contact</a>
+                </li>
+            </ul>
+            <div id="visitor-count">Visitor: <span id="count">0</span></div>
+        </div>
+    </div>
+</nav>
+  <section id="Home">
+    <div class="text">
+      <h2 id="as" style="font-weight: lighter;
+            color: #111111;
+            line-height: 2.0;
+            font-size: 40px;
+            font-family: 'Playfair Display', 'serif';
+            text-align: center;">The noble prize winner Abdus Salam</h2>
+      <h1 id="as" style=" font-weight: 500;
+            text-align: center;
+            color: #111111;
+            font-weight: 400;
+            color: #111111;
+            font-size: 11vw;
+            text-decoration: none;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease both;
+            margin-top: -80px;
+            font-family: 'Playfair Display, serif;'">Abdus Salam</h1>
+
+      <div class="cover-img">
+      </div>
+    </div>
+  </section>
+
+  <section id="Biography" style="margin-top: 10%;">
+    <div>
+
+
+    
+
+      <h1 style="text-align: center;  font-family: serif; font-size: 60px; color: #f39821; margin-top: 240px;">Biography
+      </h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <img  style="margin-top: 10px;" src="https://secularpakistan.files.wordpress.com/2010/10/salam.png?w=584" class="img-fluid"
+              alt="...">
+          </div>
+          <div class="col-lg-8">
+            <h1 style="text-decoration: underline #f39821;  text-align: left;">Introduction</h1>
+            <p>Abdus Salam was a renowned Pakistani theoretical physicist who made significant
+              contributions to the field of theoretical physics, particularly in the area of electroweak unification. He
+              was born on January 29, 1926, in Jhang, a small town in what is now Pakistan, and he passed away on
+              November 21, 1996. Abdus Salam is known for several notable achievements and contributions to the world of
+              physics:
+              Abdus Salam was a renowned Pakistani theoretical physicist who made significant contributions to the field
+              of theoretical physics, particularly in the area of electroweak unification. He was born on January 29,
+              1926, in Jhang, a small town in what is now Pakistan, and he passed away on November 21, 1996. Abdus Salam
+              is known for several notable achievements and contributions to the world of physics:
+
+              Electroweak Theory: Abdus Salam, in collaboration with Sheldon Glashow and Steven Weinberg, formulated the
+              electroweak theory, which unifies two of the four fundamental forces of nature: electromagnetism and the
+              weak nuclear force. This theory was a significant breakthrough in the understanding of particle
+              physics.Nobel Prize: In 1979, Abdus Salam, Sheldon Glashow, and Steven Weinberg were jointly awarded the
+              Nobel Prize in Physics for their work on the electroweak theory. This theory provided a crucial framework
+              for understanding the behavior of elementary particles and the electromagnetic and weak nuclear
+              interactions.
+              Awards and Recognition: In addition to the Nobel Prize, Salam received numerous awards and honors for his
+              scientific achievements and contributions to the scientific community.
+              Abdus Salam's work and dedication to advancing scientific knowledge had a profound impact on the field of
+              theoretical physics and particle physics. He remains a respected figure in the scientific community, and
+              his legacy continues to inspire future generations of physicists and scientists.
+            </p>
+          </div>
+          <div id="para2" >
+            <h1 style="text-decoration: underline #f39821; text-align: left; margin-top: -50px;margin-bottom: 50;">Education</h1>
+            <p>He began his education in Jhang and quickly gained a reputation for being a prodigious student with a
+              remarkable intellect.
+              At the age of 14, he achieved the highest marks ever recorded for the Matriculation Examination at the
+              University of the Punjab. His exceptional performance earned him recognition and acclaim from the
+              community.
+              Scholarship to Government College, University of the Punjab:
+
+              As a result of his outstanding Matriculation Examination results, Abdus Salam was awarded a scholarship to
+              Government College, University of the Punjab. This opportunity marked a significant step in his
+              educational journey.
+              In 1946, he completed his Master of Arts (M.A.) degree from the University of the Punjab, a notable
+              accomplishment for a young man from a small town in British India.
+              In the same year, he was awarded a scholarship to St. John's College, University of Cambridge, in the
+              United Kingdom. This scholarship allowed him to pursue advanced studies in physics and mathematics at one
+              of the world's leading academic institutions.
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img style="margin-top: 0px;height: 280px;" src="https://i.brecorder.com/large/2022/10/6349e05cce880.jpg"
+              class="img-fluid" alt="...">
+          </div>
+          <div class="col-lg-8">
+            <p >
+            <h2 style="text-decoration: underline #f39821;">Scholarship to Government College,
+              University of the Punjab:</h2><p>In 1946, he completed his Master of Arts (M.A.) degree from the University
+            of the Punjab, marking a significant milestone in his academic journey.
+            Later in the same year, he was awarded a scholarship to St. John's College, University of Cambridge, in the
+            United Kingdom. This opportunity allowed him to pursue advanced studies in physics and mathematics.While at
+            Cambridge, Abdus Salam excelled academically, achieving a Bachelor of Arts (honors) degree with a double
+            First in mathematics and physics in 1949. This demonstrated his exceptional academic abilities.Abdus Salam's
+            scholarship to Government College, University of the Punjab, marked a significant turning point in his
+            educational journey and provided him with the opportunity to pursue higher education at a reputable
+            institution.
+            </p>
+          </div>
+          <div id="para3">
+            <p>Background:
+
+              After achieving the highest marks ever recorded for the Matriculation Examination at the University of the
+              Punjab at the age of 14, Abdus Salam gained widespread recognition for his exceptional academic
+              performance. This achievement drew the attention of education authorities and scholars.
+              Award of the Scholarship:
+
+              In recognition of his outstanding academic performance, Abdus Salam was awarded a scholarship to
+              Government College, University of the Punjab, one of the most prestigious educational institutions in the
+              region.
+              This scholarship was a significant honor, as it provided financial support for his further education and
+              enabled him to access high-quality educational resources and opportunities.
+              Government College, University of the Punjab:
+
+              Government College, located in Lahore, was known for its rigorous academic programs and excellence in
+              education.
+              It was a hub of intellectual and academic activities, attracting some of the brightest minds in the
+              region.
+              Impact on Abdus Salam's Education:
+
+              Attending Government College provided Abdus Salam with access to a higher level of education and a more
+              challenging academic environment.
+              It was during his time at Government College that he continued to excel academically, laying the
+              foundation for his future academic achievements and contributions to the field of physics.
+              Further Studies Abroad:
+
+              His academic success at Government College and the recognition he received eventually led to him being
+              awarded a scholarship to study abroad at the University of Cambridge in the United Kingdom. This marked
+              the next phase of his educational journey, where he pursued advanced studies in physics and mathematics.
+              The scholarship to Government College, University of the Punjab, was a pivotal moment in Abdus Salam's
+              early education. It provided him with the support and resources he needed to further develop his
+              intellectual abilities and pursue higher education. His time at Government College, along with the
+              subsequent scholarship to Cambridge, set the stage for his extraordinary contributions to the field of
+              theoretical physics and his eventual receipt of the Nobel Prize in Physics for his work on electroweak
+              unification.</p>
+          </div>
+
+          <div class="col-lg-8">
+            <h1 style="text-decoration: underline #f39821; text-align: left;">Higher Education in Abroad:</h1>
+            <p>
+              Abdus Salam's higher education in the United Kingdom, particularly at the University of Cambridge, played
+              a crucial role in shaping his intellectual development and establishing him as a prominent physicist. Here
+              is a detailed account of his experiences during his time in the UK:
+            </p>
+            <h2 style="text-decoration: underline #f39821;">Scholarship to Cambridge:</h2>
+            <p>In 1946, after completing his Master of Arts (M.A.) degree from the University of
+              the Punjab, Abdus Salam was awarded a scholarship to St. John's College, University of Cambridge. This
+              scholarship was a prestigious and highly competitive opportunity that opened doors to advanced studies in
+              the United Kingdom.During his time at Cambridge, Abdus Salam pursued studies in mathematics and physics.
+              His studies at the intersection of these two disciplines would later play a crucial role in his
+              groundbreaking work in theoretical physics.The scholarship allowed Abdus Salam to immerse himself in an
+              environment that encouraged intellectual curiosity, critical thinking, and academic exploration.
+              It was during his years at Cambridge that he honed his analytical and problem-solving skills, which would
+              serve him well in his future research and contributions to theoretical physics.</p>
+
+          </div>
+          <div class="col-lg-4">
+            <img style="height: 380px;margin-top: 40px;" src="https://smapse.com/storage/2017/09/converted/825_585_cambridge-university-5.png"
+              alt="...">
+          </div>
+
+          <div id="para4">
+            <p>
+            <h2 style="text-decoration: underline #f39821;  text-align: left;">Academic Achievements at Cambridge:
+            </h2>
+
+            Abdus Salam's academic achievements at the University of Cambridge were remarkable and demonstrated his
+            exceptional talent in mathematics and physics. Here are detailed insights into his academic accomplishments
+            during his time at Cambridge:
+
+            Bachelor of Arts (Honors) Degree:
+
+            Abdus Salam achieved a Bachelor of Arts (BA) degree with honors at the University of Cambridge. This is a
+            standard undergraduate degree awarded by the university.
+            Double First:
+
+            What made his BA degree particularly exceptional was that he received a "double First" in mathematics and
+            physics. A "double First" is a rare and prestigious distinction in the British educational system,
+            indicating that he earned the highest possible marks and recognition for his academic performance in both
+            subjects.
+            Mathematics and Physics:
+
+            His studies encompassed both mathematics and physics, and he excelled in both fields. This diverse academic
+            background would later become a crucial foundation for his work in theoretical physics.
+            Smith's Prize:
+
+            In 1950, Abdus Salam was awarded the Smith's Prize by the University of Cambridge. The Smith's Prize is a
+            prestigious award presented to recognize the most outstanding pre-doctoral contributions to the field of
+            physics.
+            Significance of the Smith's Prize:
+
+            Receiving the Smith's Prize was a significant honor and showcased his exceptional potential as a physicist.
+            It marked him as a rising star in the world of physics and highlighted the quality and significance of his
+            contributions to the field.
+            Abdus Salam's academic achievements at Cambridge, including the rare distinction of a "double First" and the
+            prestigious Smith's Prize, underscored his extraordinary intellect and dedication to the pursuit of
+            knowledge. These early academic successes set the stage for his future research and contributions to
+            theoretical physics, ultimately leading to his groundbreaking work on the electroweak theory and his Nobel
+            Prize in Physics. His academic achievements at Cambridge are a testament to his exceptional talent and
+            commitment to the field of science.</p>
+          </div>
+
+          <div class="col-lg-8">
+            <h2 style="text-decoration: underline #f39821; text-align: left;">Smith's Prize:</h2>
+            <p>
+              In 1950, Abdus Salam was awarded the Smith's Prize from Cambridge University. The Smith's Prize is given
+              to recognize the most outstanding pre-doctoral contributions to physics.
+              This prestigious award highlighted his exceptional potential as a physicist and further bolstered his
+              reputation in the academic and scientific community.Receiving the Smith's Prize was a significant honor
+              and showcased his exceptional potential as a physicist. It marked him as a rising star in the world of
+              physics and highlighted the quality and significance of his contributions to the field.
+              Abdus Salam's academic achievements at Cambridge, including the rare distinction of a "double First" and
+              the prestigious Smith's Prize, underscored his extraordinary intellect and dedication to the pursuit of
+              knowledge.
+            </p>
+
+          </div>
+          <div class="col-lg-4">
+            <img style="margin-top: 0px;height: 280px;" src="https://www.mondovagandosenzameta.it/wp-content/uploads/2020/09/St-Jonhs-College-Cambridge.jpg"
+              class="img-fluid" alt="...">
+          </div>
+
+          <div class="para3">
+            <h2 style="text-decoration: underline #f39821;  text-align: left;">Scholarship to Cambridge:</h2>
+            <p>In 1946, after completing his Master of Arts (M.A.) degree from the University of the Punjab, Abdus Salam
+              was awarded a scholarship to St. John's College, University of Cambridge. This scholarship was a
+              prestigious and highly competitive opportunity that opened doors to advanced studies in the United
+              Kingdom.During his time at Cambridge, Abdus Salam pursued studies in mathematics and physics. His studies
+              at the intersection of these two disciplines would later play a crucial role in his groundbreaking work in
+              theoretical physics.The scholarship allowed Abdus Salam to immerse himself in an environment that
+              encouraged intellectual curiosity, critical thinking, and academic exploration.
+              It was during his years at Cambridge that he honed his analytical and problem-solving skills, which would
+              serve him well in his future research and contributions to theoretical physics.</p>
+
+          </div>
+
+
+          <div class="para3">
+            <h2 style="text-decoration: underline #f39821;  text-align: left;">Doctoral Studies:</h2>
+            <p >Following his undergraduate studies, Abdus Salam pursued his Ph.D. in theoretical
+              physics at Cambridge. His doctoral research contributed to the field of quantum electrodynamics and laid
+              the foundation for his future work.
+            </p>
+          </div>
+
+          <div class="para3">
+            <h2 style="text-decoration: underline #f39821;  text-align: left;">Impact on Career:</h2>
+            <p>The scholarship to Cambridge provided Abdus Salam with the educational resources
+              and intellectual environment needed to advance his academic and scientific career. It was instrumental in
+              his journey to becoming a renowned theoretical physicist.
+              Abdus Salam's scholarship to the University of Cambridge allowed him to receive a world-class education,
+              engage with leading academics, and conduct groundbreaking research. This scholarship was a crucial step in
+              his pursuit of knowledge and his eventual contributions to the field of theoretical physics, including the
+              formulation of the electroweak theory, for which he was awarded the Nobel Prize in Physics.
+            </p>
+          </div>
+
+          <div class="col-lg-4">
+            <img style="margin-top: 60px;height: 280px; " src="https://ychef.files.bbci.co.uk/976x549/p07r17f9.jpg" class="img-fluid"
+              alt="...">
+          </div>
+         
+
+          <div class="col-lg-8">
+            <h1 style="text-decoration: underline #f39821 ;text-align: left;">Research and
+              Contributions:</h1>
+            <p style=" margin-bottom: 0px">His doctoral research marked the beginning of his
+              significant contributions to theoretical physics. His work in quantum electrodynamics and other areas of
+              particle physics had a lasting impact on the field.
+              His intellectual curiosity and dedication to scientific research continued to drive his academic and
+              professional achievements.
+              Abdus Salam's higher education in the United Kingdom, particularly at the University of Cambridge,
+              provided him with the academic foundation, research opportunities, and exposure to a global community of
+              scholars that were instrumental in his journey to becoming one of the most respected theoretical
+              physicists in the world. His time in the UK set the stage for his future contributions to the field of
+              physics, including his pivotal role in formulating the electroweak theory and his eventual receipt of the
+              Nobel Prize in Physics.
+            </p>
+          </div>
+
+          <div class="col-lg-8">
+            <h1 style="text-decoration: underline #f39821;  text-align: left;">Things he has done for Pakistan</h1>
+            <p>
+              Abdus Salam, a renowned Pakistani theoretical physicist, made significant contributions to the field of
+              physics and science education in Pakistan after returning from the United Kingdom. Here are some of the
+              key contributions and activities he was involved in upon his return to Pakistan:
+              Educational Reforms: Abdus Salam played a crucial role in promoting science education in Pakistan. He
+              advocated for the improvement of the education system and helped establish the Pakistan Atomic Energy
+              Commission (PAEC), which played a pivotal role in the development of nuclear science and technology in the
+              country.
+
+              Scientific Research: Salam continued his own research in theoretical physics and maintained close ties
+              with international scientific communities. He contributed to the advancement of scientific research in
+              Pakistan and encouraged collaboration with other scientists from around the world.
+
+              Founding SUPARCO: Abdus Salam played a key role in the establishment of the Space and Upper Atmosphere
+              Research Commission (SUPARCO) in Pakistan. This agency has been responsible for Pakistan's efforts in
+              space research and satellite technology.
+            </p>
+          </div>
+
+          <div class="col-lg-4">
+            <img style="margin-top: 45px;margin-bottom:5px 360px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUZ7uQVSlIOTum7Cb4rGDzPp5V1riY5FP8lKtJu6tOaipB4EJvL7sNwaEapCvjIlzMMAQ&usqp=CAU"
+              class="img-fluid" alt="...">
+          </div>
+
+          <div id="para2" >
+            <h1 style="text-decoration: underline #f39821;  text-align: left;">Scientific orginization:</h1>
+            <p>Pakistan Physical Society (PPS): Abdus Salam served as the President of the Pakistan Physical Society.
+              This organization is dedicated to the promotion of physics and the advancement of scientific knowledge in
+              Pakistan. Under his leadership, the PPS likely saw increased engagement with international scientific
+              communities and worked to foster collaboration among physicists in Pakistan. Salam's presidency of this
+              society was a testament to his commitment to advancing the field of physics within Pakistan.
+
+              Pakistan Association for the Advancement of Science (PAAS): Salam also held the position of President in
+              the Pakistan Association for the Advancement of Science. The PAAS is a multifaceted organization that aims
+              to promote scientific and technological research in Pakistan and to facilitate the dissemination of
+              scientific knowledge. Salam's leadership in this organization would have contributed to its objectives of
+              fostering scientific inquiry and the exchange of ideas among scientists and researchers in Pakistan.
+
+              Abdus Salam's leadership roles in these scientific organizations demonstrated his dedication to the growth
+              of scientific knowledge, research, and education in Pakistan. His influence and contributions were not
+              limited to his individual research but extended to the broader scientific community, leaving a lasting
+              impact on the development of science and physics in the country.
+            </p>
+          </div>
+      
+          <div class="col-lg-4">
+            <img style="height: 450px;width: 400px; margin-top: 40px;"
+            src="https://prideofpakistan.com/halloffame/orgsize_271Dr%20Abdus%20Salam.jpg" class="img-fluid" alt="...">
+        </div>
+          
+          <div class="col-lg-8">
+            <h1 style="text-decoration: underline #f39821;  text-align: left;">The Noble Prize</h1>
+            <p>
+              Abdus Salam was awarded the Nobel Prize in Physics in 1979 for his significant contributions to the field
+              of theoretical physics, particularly his work on electroweak unification. Here is a detailed overview of
+              his Nobel Prize recognition:
+
+              Electroweak Theory: Abdus Salam, along with Sheldon Glashow and Steven Weinberg, was honored with the
+              Nobel Prize for their development of the electroweak theory. This theory unifies two fundamental forces of
+              nature: the electromagnetic force, responsible for interactions between charged particles, and the weak
+              nuclear force, which governs certain types of radioactive decay. The electroweak theory demonstrated that
+              these forces were once part of a single, unified force in the early universe, and they became distinct as
+              the universe cooled and expanded.
+
+              Theoretical Breakthrough: Salam, Glashow, and Weinberg's work significantly advanced our understanding of
+              the fundamental forces and particles that make up the universe. Their theory helped bridge the gap between
+              the electromagnetic and weak nuclear forces and provided a crucial framework for the Standard Model of
+              particle physics.
+
+              Experimental Validation: One of the remarkable aspects of the electroweak theory is that it made specific
+              predictions that could be tested through experiments. In particular, the theory predicted the existence of
+              the W and Z bosons, which are responsible for mediating weak nuclear interactions. These particles were
+              subsequently discovered in experiments at CERN (the European Organization for Nuclear Research) in 1983,
+              providing strong experimental confirmation of the theory.
+            </p>
+          </div>
+          <div id="para6" >
+            <p>Abdus Salam played a significant role in the founding and development of the Space and Upper Atmosphere
+              Research Commission (SUPARCO) in Pakistan. Here is a more detailed overview of his involvement:
+
+              Vision for Space Research: Abdus Salam recognized the importance of space research and satellite
+              technology for the scientific and technological advancement of a nation. He believed that space
+              exploration and research could play a vital role in various fields, including telecommunications, weather
+              forecasting, natural resource management, and national security.
+
+              Establishment of SUPARCO: In 1961, Salam helped establish SUPARCO, which became Pakistan's national space
+              agency. The organization was founded with the goal of conducting research and development in space science
+              and technology. It was officially created through an executive order by President Muhammad Ayub Khan.
+
+              Leadership and Guidance: Salam's expertise in physics and his international reputation in scientific
+              circles made him a valuable advisor and mentor to the Pakistani government and scientists involved in the
+              space program. He provided crucial guidance on the technical aspects and scientific goals of Pakistan's
+              space endeavors.
+
+              Collaboration and International Connections: Under Salam's influence, SUPARCO established collaborations
+              with international space agencies and organizations, such as NASA and the European Space Research
+              Organization (ESRO). These partnerships helped Pakistan gain access to valuable expertise, technical
+              resources, and knowledge in space technology.
+
+              Early Milestones: During the early years of SUPARCO, several important milestones were achieved, including
+              the launch of Pakistan's first sounding rocket in 1962 and the establishment of the Sonmiani Space Center
+              for launching purposes.
+
+              Human Capital Development: Salam emphasized the importance of developing a skilled workforce in space
+              science and technology. SUPARCO initiated various educational and training programs to build a cadre of
+              professionals with expertise in space-related fields.
+
+              Legacy: Abdus Salam's involvement with SUPARCO laid the foundation for Pakistan's space program, which
+              continues to evolve and make contributions to various areas, including satellite technology, remote
+              sensing, and space exploration.
+
+              Despite challenges and limitations, the establishment of SUPARCO marked an important step in Pakistan's
+              pursuit of space science and technology, and Abdus Salam's vision and contributions played a crucial role
+              in shaping the organization's early development and achievements.
+            </p>
+          </div>
+
+          <div class="col-lg-8">
+            <p>
+            <h2 style="text-decoration: underline #f39821; text-align: left;">After Abdus Salam was awarded the
+              Nobel Prize/death</h2>After Abdus Salam was awarded the Nobel Prize in Physics in 1979, his life and
+            career continued to be marked by notable developments:
+
+            Scientific Achievements: Salam's Nobel Prize brought him further recognition and respect in the
+            international scientific community. He continued to be actively involved in theoretical physics and
+            maintained his research endeavors.
+
+            Educational Contributions: Salam was deeply committed to promoting scientific education and research in
+            Pakistan. He used his Nobel Prize recognition to advocate for better educational opportunities in the
+            country and continued to mentor and inspire young scientists.
+
+            International Engagement: He remained actively engaged with international scientific organizations and
+            collaborators, which allowed him to stay at the forefront of theoretical physics and maintain ties with
+            leading physicists around the world.
+
+            Exile from Pakistan: Unfortunately, despite his immense contributions to science, Abdus Salam faced
+            challenges and discrimination in Pakistan due to his Ahmadiyya Muslim faith. The government's decision to
+            declare Ahmadiyya Muslims as non-Muslims led to his exile from scientific and academic life in Pakistan.
+
+            Residence in the United Kingdom: After leaving Pakistan, Salam continued to reside in the United Kingdom,
+            where he had completed his education and early scientific work. He was associated with the University of
+            London and Imperial College London during this period.
+            </p>
+          </div>
+
+          <div class="col-lg-4">
+            <img style="margin-top: 30px;height: 388px;" src="https://www.nobelprize.org/images/salam-13319-portrait-medium.jpg"
+            class="img-fluid" alt="...">
+          </div>
+        
+          <div id="para2" style="margin: bottom 100px ;">
+            <p>
+              Abdus Salam passed away on November 21, 1996, in Oxford, England, where he had been living during the
+              latter part of his life. His death marked the end of a distinguished career in theoretical physics and a
+              life dedicated to the advancement of science, education, and international cooperation. Salam's
+              contributions to the field of theoretical physics, particularly his work on the electroweak theory, remain
+              a significant part of the scientific legacy he left behind. His passing was a loss to the scientific
+              community, and he is remembered for his exceptional contributions and the challenges he faced in his
+              personal and professional life.</p>
+          </div>
+
+  </section>
+ 
+ <h2 style="text-align: center; font-size: 50px; color:#f39821;font-family: serif;">Gallery</h2>
+ <div id="pdf-link">
+  <a href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank">
+  </a>
+</div>
+
+<section class="gallery"  id="gallery">
+  
+    <div class="gallery-item">
+      <a class="pdf-link" href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank"></a>
+        <img style="height: 400px;" src="https://m.media-amazon.com/images/I/418046KNX1L._AC_UF894,1000_QL80_.jpg" alt="Image 1">
+        <div style="font-size: 45px;  " class="image-text">Abdus Salam was a man with a vision.  </div>
+    </div>
+    <div class="gallery-item">
+      <a class="pdf-link" href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank"></a>
+        <img src="https://www.perlego.com/books/RM_Books/world_scientific_pub_rlpceeul/9789814368414.jpg" alt="Image 2">
+        <div style="font-size: 40px;  " class="image-text">Renaissance Of Sciences In Islamic Countries: Muhammad Abdus Salam </div>
+    </div>
+    <div class="gallery-item">
+      <a class="pdf-link" href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank"></a>
+        <img src="https://studyexpress.com.pk/cdn/shop/files/WhatsAppImage2023-08-12at8.47.58PM_1_420x.jpg?v=1691855597" alt="Image 3">
+        <div style="font-size: 30px;" class="image-text">UNDERSTANDING ECONOMICS AS LEVEL BY ABDUS SALAM</div>
+    </div>
+    <div class="gallery-item">
+      <a class="pdf-link" href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank"></a>
+        <img  style="height: 390px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxacTPe5RvC7WmfsjilZNp9_zBlcJBiD-a_g&usqp=CAU" alt="Image 4">
+        <div style="font-size: 50px;  " class="image-text">Abdus Salam Jomoddar  </div>
+    </div>
+    <div class="gallery-item">
+      <a class="pdf-link" href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank"></a>
+        <img  style="height: 400px;" src="https://readersend.com/wp-content/uploads/2009/03/thumb_286_2128.jpg" alt="Image 5">
+        <div style="font-size: 40px;  " class="image-text">Urdu Poetry: An Anthology upto 19th Century </div>
+    </div>
+    <div class="gallery-item">
+      <a class="pdf-link" href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank"></a>
+      <img src="https://islamghar.pk/wp-content/uploads/2023/09/Tafseer-Quran-Al-Kareem-4-Volume-Set-1.png" alt="Image 3">
+      <div style="font-size: 40px;  " class="image-text">Abdus Salam was a man with a vision. </div>
+  </div>
+  <div class="gallery-item">
+    <a class="pdf-link" href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank"></a>
+      <img  style="height: 400px;" src="https://images.booksense.com/images/650/091/9789811091650.jpg" alt="Image 4">
+      <div style="font-size: 40px;  " class="image-text">Power Systems Grounding (Paperback) </div>
+  </div>
+  <div class="gallery-item">
+    <a class="pdf-link" href="https://globalforgivenessinitiative.com/user/pages/download/Four-Steps-to-Forgiveness-William-Fergus-Martin.pdf" target="_blank"></a>
+      <img style="height: 400px;" src="https://www.bookspace.in/cdn/shop/products/IMG_9233_b4bc7e75-4170-4d0d-8ccb-0e58d84fcd8e.jpg?v=1681318268" alt="Image 5">
+      <div style="font-size: 40px;  " class="image-text">Great Scientists Abdus Salam by Mary Joseph </div>
+  </div>
+    <!-- Add more images as needed -->
+</section>
+
+
+
+  <section id="section4">
+    <h2 style="text-align: center; font-size: 50px; color:#f39821;font-family: serif;">Contact Us </h2>
+    <!-- Your content for section 4 here -->
+  </section>
+
+  <section id="Contact" style="background-color: #fafafa;">
+    <div id="container">
+        <div id="map">
+            <!-- Google Map will be displayed here -->
+            <iframe
+                width="100%"
+                height="300"
+                frameborder="0"
+                scrolling="yes"
+                marginheight="0"
+                marginwidth="0"
+                src="https://maps.google.com/maps?q=YOUR_LOCATION&amp;output=embed">
+            </iframe>
+        </div>
+        <div id="contact-form">
+            <h2>Contact Us</h2>
+            <form id="Registerationform">
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label" id="Username"
+                      required>Username</label>
+                  <input type="email" class="form-control"  placeholder="Enter your username " id="exampleInputEmail1">
+  <br>
+                  <label for="exampleInputEmail1" class="form-label" id="Name"
+                      required>Name</label>
+                  <input type="email" class="form-control"placeholder="Enter your Name "  id="Name">
+  <br>
+  
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" placeholder="Enter your Email address " id="Email address"
+                      required>
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+  
+              <div class="mb-3">
+                  <label for="Password" class="form-label">Password</label>
+                  <input type="password" class="form-control" placeholder="Enter your Password " id="Password" required>
+              </div>
+  
+              <div class="mb-3">
+                  <label for="Password" class="form-label">confirmPassword</label>
+                  <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm your Password "
+                      id="confirmPassword" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- Include Bootstrap JS here if not already included -->
+<script src="path/to/bootstrap.js"></script>
+  <!--footer-->
+  <footer class="footer" style="background-color: #f39821;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 style="font-size: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">About</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero eu consequat auctor.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 style="font-size: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Quick Links</h3>
+                <ul>
+                    <li><a class="links" href="#">Home</a></li>
+                    <li><a class="links" href="#">Services</a></li>
+                    <li><a class="links" href="#">Portfolio</a></li>
+                    <li><a class="links" href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3 style="font-size: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Contact</h3>
+                <p>Email: contact@example.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+        </div>
+    </div>
+    <button id="scrollTop">↑</button>
+</footer>
+<footer id="footer2">
+    <p class="text-center">© 2023 Footer ABC. All rights reserved. | <a href="mailto:footer@abc.com">footer@abc.com</a></p>
+</footer>
+    
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  <script>
+    
+    function isElementInViewport(el) {
+      var rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+      );
+    }
+
+    function handleScrollAnimation() {
+      var elements = document.querySelectorAll('.animated-fade');
+      elements.forEach(function (element) {
+        if (isElementInViewport(element)) {
+          element.classList.add('animate');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('load', handleScrollAnimation); // Handle animation on page load
+
+    // Initial check in case the elements are already in the viewport
+    handleScrollAnimation();
+
+    // visitor-count//
+    function updateVisitorCount() {
+      let count = localStorage.getItem("visitorcount");
+      count = count ? parseInt(count) + 1 : 1;
+      $("#count").text(count);
+      localStorage.setItem("visitorcount", count.toString());
+    }
+    updateVisitorCount();
+
+
+    // section//
+
+    const menuLinks = document.querySelectorAll('.navbar-nav a.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 100;
+      menuLinks.forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+
+    // animated scroll nav//
+
+    const navbar = document.querySelector(".navbar");
+    const headerHeight = navbar.offsetHeight;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > headerHeight) {
+        navbar.classList.add("fixed");
+      } else {
+        navbar.classList.remove("fixed");
+      }
+    });
+
+    // images books//
+
+    function handleHover(container) {
+      const cover = container.querySelector('.image-cover');
+
+      if (event.type === 'mouseover') {
+        cover.style.bottom = '0';
+      } else if (event.type === 'mouseout') {
+        cover.style.bottom = '100%';
+      }
+    }
+
+    const imageContainers = document.querySelectorAll('.image-container');
+
+    // Function to check if an element is in the viewport
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+      );
+    }
+
+    function handleScroll() {
+      imageContainers.forEach((container, index) => {
+        if (isElementInViewport(container)) {
+          container.classList.remove('hidden');
+        } else {
+          container.classList.add('hidden');
+        }
+      });
+    }
+
+    // Add a scroll event listener to trigger the animations when scrolling
+    window.addEventListener('scroll', handleScroll);
+    // Call the function once on page load to handle the initial state
+    handleScroll();
+
+    $(document).ready(function () {
+        $('#Registerationform').validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlenght: 3
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlenght: 6
+                },
+                confirmPassword: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            },
+            message: {
+                username: {
+                    required: "please enter your user name",
+                    minlenght: "username must be at least 3 characters"
+                },
+                password: {
+                    required: "please enter your password name",
+                    minlenght: "password must be at least 6 characters"
+                },
+                email: {
+                    required: "please enter your password name",
+                    minlenght: "please enter your valid email adress"
+                },
+                confirmPassword: {
+                    required: "please confirm your password name",
+                    equalTo: "password do not match"
+                },
+
+            },
+            errorClass: "error",
+            SubmitHandler: function (form) {
+                alert("Registeration successful!");
+            }
+        });
+    });
+  </script>
+  <script>
+    $(document).ready(function (){
+                        $(window).scroll(function () {
+                                            $(".section").each(function () {
+                                                                var positon = $(this).offset().top;
+                                                                var scrollPPosition = $(window).scrollTop() + $(window).height() - 100;
+
+                                                                if(positon < scrollPPosition){
+                                                                                    $(this).addClass("show");
+                                                                }
+                                            });
+                         });
+                        $(window).scroll();
+    });
+</script>
+<script>
+    $(document) .ready(function(){
+                        $(window) .scroll(function(){
+                                            if ($(this).scrollTop() > 100){
+                                                                $('#scrollTop').fadeIn();
+                                            } else {
+                                                         $('#scrollTop').fadeOut();
+                                            }
+                        });
+                        $('#scrollTop').click(function(){
+                                            $('html, body').animate({scrollTop :0},800);
+                                            return false;
+                        });
+    });
+
+    // validation
+    $(document).ready(function () {
+        $('#Registerationform').validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlenght: 3
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlenght: 6
+                },
+                confirmPassword: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            },
+            message: {
+                username: {
+                    required: "please enter your user name",
+                    minlenght: "username must be at least 3 characters"
+                },
+                password: {
+                    required: "please enter your password name",
+                    minlenght: "password must be at least 6 characters"
+                },
+                email: {
+                    required: "please enter your password name",
+                    minlenght: "please enter your valid email adress"
+                },
+                confirmPassword: {
+                    required: "please confirm your password name",
+                    equalTo: "password do not match"
+                },
+
+            },
+            errorClass: "error",
+            SubmitHandler: function (form) {
+                alert("Registeration successful!");
+            }
+        });
+    });
+
+   
+</script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
